@@ -1,6 +1,7 @@
 require('pg')
 require('pry')
 
+# DB = PG.connect({:dbname => 'doctors_office_test'})
 
 
 class Doctor
@@ -33,6 +34,25 @@ class Doctor
       return Doctor.new({:name => name, :specialty => specialty, :id => id})
     end
   end
+
+  def self.find_by_name(doctor_name)
+    returned_doctors = DB.exec("SELECT * FROM doctors WHERE name = '#{doctor_name}';")
+    returned_doctors.each() do |doctor|
+      name = doctor.fetch("name")
+      specialty = doctor.fetch("specialty_id")
+      id = doctor.fetch("id").to_i()
+      return Doctor.new({:name => name, :specialty => specialty, :id => id})
+    end
+  end
+
+  # def self.find_by_name(name)
+  #   returned_name = DB.exec("SELECT * FROM doctors WHERE name = '#{name}';")
+  #   returned_name.each() do |name|
+  #     name2 = name.fetch("name")
+  #     id = name.fetch('id')
+  #     return Specialty.new({:specialty => specialty2, :id => id})
+  #   end
+  # end
 
   def save
     # specialty_id = Specialty.new(@specialty)

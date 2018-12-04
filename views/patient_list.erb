@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Patients assigned to <%= @doctor %></h2>
+    <ul>
+
+    <% @patients.each do |patient|%>
+      <% if patient.doctor_id == @doctor_id %>
+      <li><%= patient.name %>, <%= patient.birthday %></li>
+      <% end %>
+      <% end %>
+  </ul>
+</div>
+
+<div class="container">
+  <a href="/"> <button type="button" name="button">Go Home</button> </a>
+</div>

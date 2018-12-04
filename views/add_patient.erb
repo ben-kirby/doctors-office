@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>Patient Info</h1>
+  <form  action="/add_patient" method="post">
+    <div class="form-group">
+      <input type="text" name="new_name" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+      <input type="date" name="new_birthday" placeholder="Specialty">
+    </div>
+
+    <div class="form-group">
+      <label for="dr-list">Assign doctor:</label>
+      <select name="dr-list">
+        <% @doctors.each do |doctor|%>
+            <option value="<%= doctor.name %>"><%= doctor.name %></option>
+        <%end%>
+      </select>
+    </div>
+    <button type="submit" name="button">Add</button>
+
+  </form>
+
+
+  <h2>Patients</h2>
+  <% if @patients == [] %>
+  <p>No patients have been added to this list.</p>
+  <% else %>
+  <ul>
+    <% @patients.each do |patient| %>
+    <li><%= patient.name %> , <%= patient.birthday %><% end %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<br>
+<br>
+
+
+<div class="container">
+  <a href="/"> <button type="button" name="button">Go Home</button> </a>
+</div>

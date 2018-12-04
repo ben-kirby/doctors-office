@@ -18,8 +18,17 @@
   <% else %>
   <ul>
     <% @doctors.each do |doctor| %>
-    <li><%= doctor.name %><% end %>
+    <li><%= doctor.name %>
+    <% end %>
     </li>
     <% end %>
   </ul>
+</div>
+
+<br>
+<br>
+
+
+<div class="container">
+  <a href="/"> <button type="button" name="button">Go Home</button> </a>
 </div>
