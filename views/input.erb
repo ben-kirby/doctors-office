@@ -2,19 +2,21 @@
     <div class="row">
       <div class="col">
         <h1>ADMIN</h1>
+        <p class="text-muted">Manage doctors and patients</p>
         <br>
-        <a href="/add_doctor"><button type="button" >Add Doctor</button></a>
+        <a href="/add_doctor"><button class="btn btn-primary"  type="button" >Add Doctor</button></a>
         <br>
         <br>
-        <a href="/add_patient"><button type="button" >Add Patient</button></a>
+        <a href="/add_patient"><button class="btn btn-primary"  type="button" >Add Patient</button></a>
 
         <br>
         <br>
-        <a href="/add_doctor_to_patient"><button type="button" >Add Dr. to Patient</button></a>
+        <!-- <a href="/add_doctor_to_patient"><button type="button" >Add Dr. to Patient</button></a> -->
       </div>
 
       <div class="col">
         <h1>DOCTOR</h1>
+        <p class="text-muted">View patients by doctor</p>
         <form class="" action="/patient_list">
           <div class="form-group">
             <select class="" name="dr-list">
@@ -22,13 +24,16 @@
                   <option value="<%= doctor.name %>"><%= doctor.name %></option>
               <%end%>
               </select>
-            <button type="submit" name="button">Get Patients</button>
+              <br>
+              <br>
+            <button class="btn btn-primary" type="submit" name="button">Get Patients</button>
           </form>
         </div>
       </div>
 
       <div class="col">
         <h1>PAITENT</h1>
+        <p class="text-muted">View doctors by specialty</p>
 
         <form class="" action="/specialty_list">
           <div class="form-group">
@@ -37,7 +42,9 @@
                   <option value="<%= specialty.specialty %>"><%= specialty.specialty %></option>
               <%end%>
               </select>
-            <button type="submit" name="button">See Doctors</button>
+              <br>
+              <br>
+            <button class="btn btn-primary"  type="submit" name="button">See Doctors</button>
           </form>
       </div>
     </div>

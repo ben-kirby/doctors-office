@@ -8,7 +8,11 @@
     <div class="form-group">
       <input type="text" name="new_specialty" placeholder="Specialty">
     </div>
-    <button type="submit" name="button">Add</button>
+    <button class="btn btn-primary"  type="submit" name="button">Add</button>
+    <br>
+    <br>
+    <br>
+
 
   </form>
 
@@ -16,9 +20,13 @@
   <% if @doctors == [] %>
   <p>No doctors have been added to this list.</p>
   <% else %>
-  <ul>
+  <ul class="list-group list-group-flush">
     <% @doctors.each do |doctor| %>
-    <li><%= doctor.name %>
+    <li class="list-group-item"><%= doctor.name %> , <% @specialties.each do |specialty2| %>
+      <% if specialty2.id == doctor.specialty %>
+      <%= specialty2.specialty %>
+      <% end %>
+    <% end %>
     <% end %>
     </li>
     <% end %>
@@ -26,9 +34,9 @@
 </div>
 
 <br>
-<br>
+
 
 
 <div class="container">
-  <a href="/"> <button type="button" name="button">Go Home</button> </a>
+  <a href="/"> <button class="btn btn-outline-danger"  type="button" name="button">Go Home</button> </a>
 </div>

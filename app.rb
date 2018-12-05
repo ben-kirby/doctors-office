@@ -24,6 +24,7 @@ end
 
 get '/add_doctor' do
   @doctors = Doctor.all
+  @specialties = Specialty.all
   erb(:add_doctor)
 end
 
@@ -58,6 +59,22 @@ post '/add_patient' do
   @doctors = Doctor.all
 
   erb(:add_patient)
+end
+
+get '/patient/:id' do
+  id = params[:id].to_i
+  @patient = Patient.find(id)
+  patient_doc = @patient.doctor_id.to_i
+
+  @doctor = Doctor.find(patient_doc)
+  doctor_specialty = @doctor.specialty.to_i
+
+  @temporary = Specialty.find(doctor_specialty)
+  @temp_spec = @temporary.specialty
+
+
+
+  erb(:patient)
 end
 
 get '/specialty_list' do

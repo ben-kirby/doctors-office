@@ -17,27 +17,30 @@
         <%end%>
       </select>
     </div>
-    <button type="submit" name="button">Add</button>
+    <button class="btn btn-primary" type="submit" name="button">Add</button>
 
   </form>
+
+  <br>
+  <br>
+
 
 
   <h2>Patients</h2>
   <% if @patients == [] %>
   <p>No patients have been added to this list.</p>
   <% else %>
-  <ul>
+  <ul class="list-group list-group-flush">
     <% @patients.each do |patient| %>
-    <li><%= patient.name %> , <%= patient.birthday %><% end %>
-    </li>
+    <li class="list-group-item"> <a href="/patient/<%= patient.id %>"><%= patient.name %> , <%= patient.birthday %><% end %>
+    </a></li>
     <% end %>
   </ul>
 </div>
 
 <br>
-<br>
 
 
 <div class="container">
-  <a href="/"> <button type="button" name="button">Go Home</button> </a>
+  <a href="/"> <button class="btn btn-outline-danger" type="button" name="button">Go Home</button> </a>
 </div>

@@ -21,11 +21,11 @@ class Specialty
     specialties
   end
 
-  def self.find(id)
-    returned_specialty = DB.exec("SELECT * FROM specialty WHERE id = #{id};")
-    returned_specialty.each() do |specialty|
-      name = specialty.fetch("specialty")
-      return Specialty.new({:specialty => specialty, :id => id})
+  def self.find(spec_id)
+    returned_specialty = DB.exec("SELECT * FROM specialty WHERE id = '#{spec_id}';")
+    returned_specialty.each() do |each|
+      name = each.fetch("specialty")
+      return Specialty.new({:specialty => name, :id => spec_id})
     end
   end
 
